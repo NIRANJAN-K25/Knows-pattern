@@ -2,7 +2,7 @@ print("success")
 print("I am also learn successfully")
 <<<<<<< HEAD
 
-print("i create my branch kd2")
+print("i create my branch kd2 and kd1")
 =======
 print("i create my branch kd1and kd2")
 
