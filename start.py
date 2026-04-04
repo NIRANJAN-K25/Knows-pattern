@@ -40,7 +40,8 @@ print()
 c=input("you are new here,---->type:  YES")
 if c=="yes" or c=="YES":
     q.userdata(a,b)
-q.check(a,b)
+else:
+    q.check(a,b)
 DATE=input("Enter the date:    or Enter K for current date")
 if DATE=="k":
     DATE=date.today()
@@ -64,7 +65,8 @@ expense=int(input("Enter the money (in numbers): "))
 description=input("Describe why spend money: ")
 if c=="yes" or c=="YES":
     q.userdata(a,b).load(DATE,whens,expense,description)
-q.check(a,b).load(DATE,whens,expense,description)
+else:
+    q.check(a,b).load(DATE,whens,expense,description)
 q.con.commit()
 q.cu.close()
 q.con.close()
