@@ -23,8 +23,8 @@ class userlogindata:
                     return "user alreay exist"
             self.cu.execute("insert into idpass (id,password) values(%s,%s)",(a,b))
             self.cu.execute(f"create table if not exists {a} (DATE date,whens int,expense int,description char(50))")
-            print("login account create succes")
-                  
+            print("login account create successfully")
+            return datastore(a)
         return "special character not allowed instead ( _ ) and does not start with number"
     def check(self,a,b):
         self.cu.execute("select * from idpass where id=%s and password=%s",(a,b))
@@ -76,4 +76,4 @@ q.con.close()
         
 
 
-    
+        
