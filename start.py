@@ -5,8 +5,11 @@ class datastore:
         self.co=mysql.connector.connect(host="localhost",user="user",password="user_pass",database="kd")
         self.cu=self.co.cursor()
         self.a=a
-    def load(self):
+    def load(self,DATE,when,expense,description):
         self.cu.execute(f"insert into {self.a} values(%s,%s,%s,%s)",(DATE,when,expense,description))
+        self.co.commit()
+        self.co.close()
+        self.cu.close()
 class userlogindata:
     def __init__(self):
         self.con=mysql.connector.connect(host="localhost",user="user",password="user_pass",database="kd")
@@ -59,6 +62,9 @@ while True:
         print("Enter valid number")
 expense=int(input("Enter the money (in numbers): "))
 description=input("Describe why spend money: ")
+if c=="yes" or c=="YES":
+    q.userdata().load(DATE,when,expense,description)
+q.check().load(DATE,when,expense,description)
 q.con.commit()
 q.cu.close()
 q.con.close()
