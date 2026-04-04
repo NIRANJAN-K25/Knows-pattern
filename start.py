@@ -50,6 +50,8 @@ while True:
         continue
     else:
         object=q.check(a,b)
+        if object=="login failed":
+            continue
         break
 while True:
     DATE=input("Enter the date:    or Enter K for current date")
@@ -69,7 +71,7 @@ while True:
     print("MidNight------->12:00AM to 4:59AM (press 7)")
     while True:
         whens=int(input("--> "))
-        if whens in [1,2,3,4,5]:
+        if whens in [1,2,3,4,5,6,7]:
             break
         else: 
             print("Enter valid number")
