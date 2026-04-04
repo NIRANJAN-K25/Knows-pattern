@@ -14,7 +14,7 @@ class userlogindata:
     def __init__(self):
         self.con=mysql.connector.connect(host="localhost",user="user",password="user_pass",database="kd")
         self.cu=self.con.cursor()
-        self.cu.execute("create table if not exists idpass(id char(20),password char(20), table_no int auto_increment primary key)")
+        self.cu.execute("create table if not exists idpass(id varchar(50),password varchar(100), table_no int auto_increment primary key)")
     def userdata(self,a,b):
         if a.isidentifier():
             self.cu.execute("select * from idpass")
@@ -34,12 +34,21 @@ class userlogindata:
         else:
             return "login failed"
 q=userlogindata()
-a=input("enter the name")
-b=input("enter the password")
-print()
-c=input("you are new here,---->type:  YES")
-if c=="yes" or c=="YES":
-    q.userdata(a,b)
+while True:
+    a=input("enter the name")
+    b=input("enter the password")
+    print()
+    c=input("you are new here,---->type:  YES")
+    if c.upper()=="YES":
+        if a.isidentifier():
+            q.cu.execute("select * from idpass")
+            for i in q.cu.fetchall():
+                if i[0]==a:
+                    print( "user alreay exist" )
+                break
+            q.userdata(a,b)
+        print("special character not allowed instead ( _ ) and does not start with number")
+        print()
 else:
     q.check(a,b)
 DATE=input("Enter the date:    or Enter K for current date")
