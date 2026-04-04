@@ -2,7 +2,7 @@ import mysql.connector
 from datetime import datetime,date
 class datastore:
     def __init__(self,a):
-        self.co=mysql.connector.connect(host="localhost",user="user",password="user_pass",database="kd")
+        self.co=mysql.connector.connect(host="localhost",user="user",password="user_pipass",database="kd")
         self.cu=self.co.cursor()
         self.a=a
     def load(self,DATE,when,expense,description):
@@ -61,7 +61,7 @@ while True:
     else: 
         print("Enter valid number")
 expense=int(input("Enter the money (in numbers): "))
-description=input("Describe why spend money: ")
+description=input("Describe what u spent:")
 if c=="yes" or c=="YES":
     q.userdata().load(DATE,when,expense,description)
 q.check().load(DATE,when,expense,description)
