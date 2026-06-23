@@ -1,0 +1,42 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+
+
+class Main {
+    public static void main(String[] args) {
+        Solution K=new Solution();
+        int [] arr={2,3,2,3,5};
+        System.out.println(K.frequencyCount(arr));
+    }
+}
+
+
+class Solution {
+    public List<Integer> frequencyCount(int[] arr) {
+        // code here
+        List<Integer> kd=new ArrayList<> ();
+        HashMap <Integer,Integer> k=new HashMap <> ();
+        int count=1;
+        for(int i=0;i<arr.length;i++){
+            if(k.containsKey(arr[i])){
+                k.put(arr[i],k.get(arr[i])+1);
+            }
+            else{
+                k.put(arr[i],count);
+            }
+        }
+        
+        for (int i=1;i<=arr.length;i++){
+            
+            if(k.containsKey(i)){
+                kd.add(k.get(i));
+            }
+            else{
+                kd.add(0);
+            }
+        }
+        return kd;
+    }
+}
+
