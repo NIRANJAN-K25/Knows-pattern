@@ -12,14 +12,14 @@ class Solution {
                 k.put(arr[i],count);
             }
         }
-        int add;
+        
         for (int i=1;i<=arr.length;i++){
-            add=0;
+            
             if(k.containsKey(i)){
                 kd.add(k.get(i));
             }
             else{
-                kd.add(add);
+                kd.add(0);
             }
         }
         return kd;
