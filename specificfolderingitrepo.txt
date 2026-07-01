@@ -1,4 +1,4 @@
-
+ mkdir D:\todo-react
  git clone --no-checkout https://github.com/freshkitedev/freshkite_tasks.git .
  git sparse-checkout init
  git sparse-checkout set projects/todo
