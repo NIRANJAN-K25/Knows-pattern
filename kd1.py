@@ -1,7 +1,6 @@
 MY APPROACH
 
-
-class Solution {
+class Solution{
     void pushZerosToEnd(int[] arr) {
         int j = 0;
 
@@ -10,7 +9,7 @@ class Solution {
                 arr[j] = arr[i];
                 j++;
             }
-        }
+        }   
 
         while (j < arr.length) {
             arr[j] = 0;
